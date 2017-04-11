@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\User;
+
 class AdminUsersController extends Controller
 {
     /**
@@ -15,8 +17,10 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
+        $users = User::all();
+
         //return admin/users/index view 
-        return view('admin.users.index');
+        return view('admin.users.index', compact('users'));
     }
 
     /**
