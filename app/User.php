@@ -34,4 +34,47 @@ class User extends Authenticatable
         return $this->belongsTo('App\Photo');
 
     }
+
+    // public function checkPassword($request) {
+    //     if (trim($request['password']) == '') {
+    //         # if password field is empty
+    //         #pass all fields except password
+    //         $request = Input::except('password')
+    //         $input = $request;
+    //         // $input = $request->except(['password']);
+
+    //         }else {
+
+    //         $input = Input::all();
+    //         $input['password'] = bcrypt($input['password']);
+
+    //         }
+    //     return $this->$input;
+    //     } 
+
+
+    //  public function setPasswordAttribute($password) {   
+    //     if (!empty($password))
+    //     {
+    //     $this->attributes['password'] = bcrypt($password);
+    //     }
+    // }   
+
+    // public function checkRole($role)
+    // {
+    //     #Do Validation here:
+
+    // }
+
+    public function isAdmin() {
+        # 
+        if ($this->role->name == "Administrator" && $this->is_active == 1) {
+            # 
+            return true;
+
+        }
+
+        return false;
+
+    }
 }
