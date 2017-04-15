@@ -1,11 +1,10 @@
 /vendor
 /node_modules
-/resources/assets
-/public/css
 /public/js
+/resources/assets
+gulpfile.js
 /public/storage
 Homestead.yaml
 Homestead.json
 .env
-/gulpfile.js
 
