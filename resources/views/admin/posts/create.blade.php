@@ -20,7 +20,7 @@
     <div class="form-group">
 		
 	{!! Form::label('category_id', 'Category:') !!}
-	{!! Form::select('category_id', array(1=>'PHP', 2=>'JavaScript', 3=>'HTML5'), null, ['class'=>'form-control']) !!}
+	{!! Form::select('category_id', [''=>'Choose Category'] + $categories, null, ['class'=>'form-control']) !!}
 
 	</div>
 
