@@ -1,4 +1,4 @@
 * text=auto
 *.css linguist-vendored
 *.less linguist-vendored
-app/resources/assets* linguist-vendored
+resources/assets* linguist-vendored
