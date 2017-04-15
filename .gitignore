@@ -1,8 +1,7 @@
 /vendor
 /node_modules
 /public/js
-/resources/assets
-gulpfile.js
+/resources/assets/js
 /public/storage
 Homestead.yaml
 Homestead.json
