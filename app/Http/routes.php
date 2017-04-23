@@ -20,20 +20,45 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 
-Route::get('/admin', function(){
+Route::get('/post/{id}',['as'=>'home.post','uses'=>'AdminPostsController@post']);
+
+
+
+Route::group(['middleware'=>'admin'], function(){
+
+
+	Route::get('/admin', function(){
 
 	return view('admin.index');
 	
 });
 
-Route::group(['middleware'=>'admin'], function(){
-
     Route::resource('/admin/users', 'AdminUsersController');
     Route::resource('/admin/posts', 'AdminPostsController');
     Route::resource('/admin/categories', 'AdminCategoriesController');
+    Route::resource('/admin/media', 'AdminMediasController');
+
+    // Route::get('/admin/media/upload', ['as'=>'admin.media.upload']);
+    Route::get('admin/media/upload', array('as'=>'admin.media.upload' ,function(){
+	//Shortcut URL path uses associated array('as'=>'shortpathname')
+
+	return view('admin.media.upload');
+	}));
+
+	Route::resource('/admin/comments', 'PostCommentsController');
+	Route::resource('/admin/comment/replies', 'CommentRepliesController');
+
 
 });
 
+//route for comment reply if the user is logged in
+Route::group(['middleware'=>'auth'], function(){
+
+	Route::post('comment/reply', 'CommentRepliesController@createReply');
+
+
+
+});
 
 
 
