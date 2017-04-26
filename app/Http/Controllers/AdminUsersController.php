@@ -35,7 +35,7 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        $roles = Role::lists('name', 'id')->all();//return array of roles
+        $roles = Role::pluck('name', 'id')->all();//return array of roles
 
         // return $roles;//debug
 
